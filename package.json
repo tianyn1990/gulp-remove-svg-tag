@@ -1,0 +1,42 @@
+{
+  "author": {
+    "name": "tianyn1990"
+  },
+  "bugs": {
+    "url": "https://github.com/tianyn1990/gulp-remove-svg-tag/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "gulp-util": "^3.0.8",
+    "through2": "^2.0.3",
+    "xml-js": "^1.5.1"
+  },
+  "deprecated": false,
+  "description": "A gulp plugin for removing file elements by tag name.",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "homepage": "https://github.com/tianyn1990/gulp-remove-svg-tag#readme",
+  "keywords": [
+    "gulp",
+    "gulpplugin",
+    "xml-js",
+    "optimize",
+    "svgo"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "gulp-remove-svg-tag",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tianyn1990/gulp-remove-svg-tag.git"
+  },
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "version": "0.0.1"
+}
