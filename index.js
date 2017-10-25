@@ -35,7 +35,7 @@ module.exports = options => {
 
         if (path.extname(file.path).toLowerCase() !== '.svg' || !file.contents.toString('utf8')) {
             this.push(file);
-            return next(null, file);
+            return next();
         }
 
         if (file.isStream()) {
@@ -43,7 +43,7 @@ module.exports = options => {
             emitError('cannot convert a stream.');
 
             this.push(file);
-            return next(null, file);
+            return next();
         }
 
         if (file.isBuffer()) {
@@ -93,11 +93,11 @@ module.exports = options => {
 
             file.contents = new Buffer(stringXml);
             this.push(file);
-            return next(null, file);
+            return next();
         }
 
         this.push(file);
-        return next(null, file);
+        return next();
 
     });
 
