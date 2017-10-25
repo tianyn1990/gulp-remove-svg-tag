@@ -1,5 +1,7 @@
 # gulp-remove-svg-tag
 
+[![Build Status](https://travis-ci.org/tianyn1990/gulp-remove-svg-tag.svg?branch=master)](https://travis-ci.org/tianyn1990/gulp-remove-svg-tag)
+
 A gulp plugin for removing file elements by tag name.
 
 ## Install

@@ -42,7 +42,7 @@ module.exports = options => {
         }
 
         if (file.isStream()) {
-            console.log('file is stream');
+            // console.log('file is stream');
 
             // wrong!
             // let stream = file.contents;
@@ -57,7 +57,7 @@ module.exports = options => {
         }
 
         if (file.isBuffer()) {
-            console.log('file is buffer');
+            // console.log('file is buffer');
 
             let stringXml = file.contents.toString('utf8');
             let jsXml = convert.xml2js(stringXml, {compact: false, spaces: 4});
