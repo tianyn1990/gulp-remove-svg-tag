@@ -1,4 +1,4 @@
-# gulp-svgo
+# gulp-remove-svg-tag
 
 A gulp plugin for removing file elements by tag name.
 
@@ -18,7 +18,7 @@ gulp.task('svg_opt', () => {
 
     return gulp.src('src/svg/*')
         .pipe(grst({
-            tagnames: ['style', 'script']
+            tagNames: ['style', 'script']
         }))
         .pipe(gulp.dest('dest/svg'));
 });
