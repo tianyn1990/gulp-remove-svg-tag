@@ -5,7 +5,7 @@
   "bugs": {
     "url": "https://github.com/tianyn1990/gulp-remove-svg-tag/issues"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "dependencies": {
     "gulp-util": "^3.0.8",
     "through2": "^2.0.3",
