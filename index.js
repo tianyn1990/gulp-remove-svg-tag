@@ -7,9 +7,6 @@ let through2 = require('through2'),
 
 module.exports = options => {
 
-    let StringDecoder = require('string_decoder').StringDecoder;
-    let decoder = new StringDecoder('utf8');
-
     const _toStr = Object.prototype.toString;
     const _isArrayWithContent = (ary) => {
         return _toStr.call(ary).toLowerCase() === '[object array]' && ary.length !== 0;
@@ -42,13 +39,6 @@ module.exports = options => {
         }
 
         if (file.isStream()) {
-            // console.log('file is stream');
-
-            // wrong!
-            // let stream = file.contents;
-            // let stringXml = decoder.write(stream.read());
-            // let result = convert.xml2js(stringXml, {compact: false, spaces: 4});
-            // console.log(result.declaration);
 
             emitError('cannot convert a stream.');
 
@@ -57,7 +47,6 @@ module.exports = options => {
         }
 
         if (file.isBuffer()) {
-            // console.log('file is buffer');
 
             let stringXml = file.contents.toString('utf8');
             let jsXml = convert.xml2js(stringXml, {compact: false, spaces: 4});
@@ -67,8 +56,7 @@ module.exports = options => {
             // remove element by tag name.
             let dels = [];
             findByTagName(jsXml, settings.tagNames, function(element, parentElement) {
-                // console.log(element, parentElement);
-                // delete
+                // prepare to remove
                 let index = 0;
                 if(
                     !_isArrayWithContent(parentElement.elements) ||
@@ -93,6 +81,7 @@ module.exports = options => {
                     });
                 }
             });
+            // truly removed
             dels.forEach((del) => {
                 del.key.elements.splice(0, del.count);
             });

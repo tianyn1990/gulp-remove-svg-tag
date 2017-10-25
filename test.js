@@ -36,7 +36,9 @@ describe('gulp-remove-svg-tag', function () {
     });
     grst.on('end', function () {
       fs.readFile('tmp/style.svg', function (err, svgfile) {
-        expect(svgfile).to.be.exist;
+        let svgfileStr = svgfile.toString();
+        expect(Boolean(~svgfileStr.indexOf('<script'))).to.be.false;
+        expect(Boolean(~svgfileStr.indexOf('<style'))).to.be.false;
         done();
       });
     });
@@ -61,8 +63,9 @@ describe('gulp-remove-svg-tag', function () {
     });
     grst.on('end', function () {
       fs.readFile('tmp/script.svg', function (err, svgfile) {
-        // console.log(err, svgfile)
-        expect(svgfile).to.be.exist;
+        let svgfileStr = svgfile.toString();
+        expect(Boolean(~svgfileStr.indexOf('<script'))).to.be.false;
+        expect(Boolean(~svgfileStr.indexOf('<style'))).to.be.false;
         done();
       });
     });
@@ -87,8 +90,9 @@ describe('gulp-remove-svg-tag', function () {
     });
     grst.on('end', function () {
       fs.readFile('tmp/script1style.svg', function (err, svgfile) {
-        // console.log(err, svgfile)
-        expect(svgfile).to.be.exist;
+        let svgfileStr = svgfile.toString();
+        expect(Boolean(~svgfileStr.indexOf('<script'))).to.be.false;
+        expect(Boolean(~svgfileStr.indexOf('<style'))).to.be.false;
         done();
       });
     });
