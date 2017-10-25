@@ -38,5 +38,5 @@
   "scripts": {
     "test": "mocha test.js"
   },
-  "version": "0.1.2"
+  "version": "0.1.3"
 }
