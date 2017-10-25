@@ -26,7 +26,7 @@ describe('gulp-remove-svg-tag', function () {
     // }
   });
 
-  it('removes style tag', function (done) {
+  it('remove style tag', function (done) {
     let grst = GRST({
       tagNames: ['style', 'script']
     });
@@ -51,7 +51,7 @@ describe('gulp-remove-svg-tag', function () {
     grst.end();
   });
 
-  it('removes script tag', function (done) {
+  it('remove script tag', function (done) {
     let grst = GRST({
       tagNames: ['style', 'script']
     });
@@ -71,6 +71,32 @@ describe('gulp-remove-svg-tag', function () {
       cwd: cwd,
       base: cwd + '/tmp/',
       path: cwd + '/tmp/script.svg',
+      contents: new Buffer(content)
+    }));
+
+    grst.end();
+  });
+
+  it('remove script & style tag', function (done) {
+    let grst = GRST({
+      tagNames: ['style', 'script']
+    });
+    var content = fs.readFileSync('test/script1style.svg');
+    grst.on('data', function(file) {
+      fs.writeFileSync('tmp/script1style.svg', file.contents.toString('utf8'));
+    });
+    grst.on('end', function () {
+      fs.readFile('tmp/script1style.svg', function (err, svgfile) {
+        // console.log(err, svgfile)
+        expect(svgfile).to.be.exist;
+        done();
+      });
+    });
+
+    grst.write(new gutil.File({
+      cwd: cwd,
+      base: cwd + '/tmp/',
+      path: cwd + '/tmp/script1style.svg',
       contents: new Buffer(content)
     }));
 

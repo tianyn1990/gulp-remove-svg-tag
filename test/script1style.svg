@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="60px" height="54px" viewBox="0 0 60 54" enable-background="new 0 0 60 54" xml:space="preserve">
+<title>vip icon</title>
+<desc></desc>
+<g id="vip">
+	<linearGradient id="Combined-1" gradientUnits="userSpaceOnUse" x1="-427.7035" y1="302.4371" x2="-427.6066" y2="301.5725" gradientTransform="matrix(18.3333 0 0 -53.3333 7850.3335 16130)">
+		<stop  offset="0" style="stop-color:#F8E9C3"/>
+		<stop  offset="1" style="stop-color:#DEBB82"/>
+	</linearGradient>
+	<path id="Combined-Shape" fill="url(#Combined-1)" d="M0,3.333V0h18.333v3.333H15v50H3.333v-50H0z"/>
+	<polygon id="Fill-3" fill="#FFFFFF" points="42.432,0 3,53.333 19.457,53.333 59.667,0.024 	"/>
+</g>
+  <style>
+    .a{font-size: 12px;}
+  </style>
+	<script>
+    var a = 1;
+  </script>
+</svg>

@@ -65,6 +65,7 @@ module.exports = options => {
             // console.log(jsXml);
 
             // remove element by tag name.
+            let dels = [];
             findByTagName(jsXml, settings.tagNames, function(element, parentElement) {
                 // console.log(element, parentElement);
                 // delete
@@ -77,6 +78,23 @@ module.exports = options => {
                     return;
                 }
                 parentElement.elements.splice(index, 1);
+                parentElement.elements.unshift(element);
+                let hasDel = dels.some((del) => {
+                    let _has = del.key === parentElement;
+                    if(_has) {
+                        del.count ++;
+                    }
+                    return _has;
+                });
+                if(!hasDel) {
+                    dels.push({
+                        key: parentElement,
+                        count: 1
+                    });
+                }
+            });
+            dels.forEach((del) => {
+                del.key.elements.splice(0, del.count);
             });
 
 
