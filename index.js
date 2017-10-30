@@ -49,6 +49,19 @@ module.exports = options => {
         if (file.isBuffer()) {
 
             let stringXml = file.contents.toString('utf8');
+            
+            // remove script tag (before invoke function `convert.xml2js`)
+            // jQuery uses this regex to remove script tags.
+            // from: https://stackoverflow.com/a/6660315/3214001
+            const scriptReg = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+            if(Boolean(~settings.tagNames.indexOf('script'))) {
+                stringXml = stringXml.replace(scriptReg, '');
+            }
+            // SVG file has `<script>` tag, but has not include in parameter `tagNames` to remove.
+            else if(Boolean(~stringXml.indexOf('</script>'))) {
+                emitError('SVG file has `<script>` tag, but has not include in parameter `tagNames` to remove.');
+            }
+
             let jsXml = convert.xml2js(stringXml, {compact: false, spaces: 4});
             // console.log(`\n\n---------from----------\n\n`);
             // console.log(jsXml);
